@@ -1,16 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Shadowscape</title>
+    <title>Synchronized Sliders</title>
 </head>
-
 <body>
-<h2>Light Sensor Reading {{ value }}!</h2>
+    <h1>Synchronized Sliders!</h1>
 
-<form action="/" method="post">
-    <p><input type="submit" name="submit" style="height:200px;width:200px" value="Turn On"></p>
-    <p><input type="submit" name="submit" style="height:200px;width:200px" value="Turn Off"></p>
-</form>
+    <input id="slider1" type="range" min="0" max="50" value="25" /> <br>
+    <input id="slider2" type="range" min="0" max="50" value="0" />
 
+
+<script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tether.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+<script src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
 </body>
 </html>

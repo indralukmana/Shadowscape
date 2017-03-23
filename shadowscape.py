@@ -1,8 +1,10 @@
 import time
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 # initialize connection to Arduino
 # if your arduino was running on a serial port other than '/dev/ttyACM0/'
@@ -69,6 +71,11 @@ def shadowscape(day=None):
     # the default page to display will be our template with our template variables
     # return render_template('index.html', author=author, value=100 * (readval / 1023.))
     return render_template('shadowscape.html')
+
+
+@app.route('/slider')
+def slider():
+    return render_template('index.html')
 
 
 if __name__ == "__main__":
