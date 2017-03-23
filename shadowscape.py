@@ -6,6 +6,11 @@ from flask_socketio import SocketIO, emit
 app = Flask(__name__)
 socketio = SocketIO(app)
 
+values = {
+    'slider1': 25,
+    'slider2': 0,
+}
+
 # initialize connection to Arduino
 # if your arduino was running on a serial port other than '/dev/ttyACM0/'
 # declare: a = Arduino(serial_port='/dev/ttyXXX')
@@ -75,8 +80,13 @@ def shadowscape(day=None):
 
 @app.route('/slider')
 def slider():
-    return render_template('index.html')
+    return render_template('index.html', **values)
 
+
+@socketio.on('value changed')
+def value_changed(message):
+    print(message)
+    values[message['who']] = message['data']
 
 if __name__ == "__main__":
     # lets launch our web page!
