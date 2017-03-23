@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shadowscape</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.css") }}">
+    <style>
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container h-100">
+    <div class="row h-100 w-100">
+        <div class="col my-auto">
+            <a href="{{ url_for('shadowscape', day='1') }}" role="button">
+                <img src="{{ url_for('static', filename='img/sun.svg') }}" class="img-fluid">
+                <!--Sunday -->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='2') }}" role="button">
+                <img src="{{ url_for('static', filename='img/mon.svg') }}" class="img-fluid">
+                <!-- Monday -->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='3') }}" role="button">
+                <img src="{{ url_for('static', filename='img/tue.svg') }}" class="img-fluid">
+                <!-- Tuesday -->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='4') }}" role="button">
+                <img src="{{ url_for('static', filename='img/wed.svg') }}" class="img-fluid">
+                <!-- Wednesday -->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='5') }}" role="button">
+                <img src="{{ url_for('static', filename='img/thu.svg') }}" class="img-fluid">
+                <!-- Thursday-->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='6') }}" role="button">
+                <img src="{{ url_for('static', filename='img/fri.svg') }}" class="img-fluid">
+                <!-- Friday -->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='7') }}" role="button">
+                <img src="{{ url_for('static', filename='img/sat.svg') }}" class="img-fluid">
+                <!-- Saturday -->
+            </a>
+        </div>
+        <div class="col my-auto mx-auto">
+            <a href="{{ url_for('shadowscape', day='0') }}" role="button">
+                <img src="{{ url_for('static', filename='img/now.svg') }}" class="img-fluid">
+                <!-- Now -->
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tether.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</body>
+</html>

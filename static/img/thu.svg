@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="214px" height="214px" viewBox="0 0 214 214" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Group Copy 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="107" cy="107" r="107"></circle>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="4" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.435603487 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <path d="M72.9779966,93.032 L72.9779966,129 L62.0339966,129 L62.0339966,93.032 L49.2339966,93.032 L49.2339966,83.688 L85.7779966,83.688 L85.7779966,93.032 L72.9779966,93.032 Z M111.997999,129 L111.997999,110.056 L94.3339989,110.056 L94.3339989,129 L83.3899989,129 L83.3899989,83.688 L94.3339989,83.688 L94.3339989,100.84 L111.997999,100.84 L111.997999,83.688 L122.941999,83.688 L122.941999,129 L111.997999,129 Z M163.306001,111.912 C163.306001,114.64268 162.847339,117.127989 161.930001,119.368 C161.012663,121.608011 159.700676,123.527992 157.994001,125.128 C156.287326,126.728008 154.22868,127.975996 151.818001,128.872 C149.407322,129.768004 146.730016,130.216 143.786001,130.216 C140.79932,130.216 138.111346,129.768004 135.722001,128.872 C133.332656,127.975996 131.306009,126.728008 129.642001,125.128 C127.977993,123.527992 126.698006,121.608011 125.802001,119.368 C124.905997,117.127989 124.458001,114.64268 124.458001,111.912 L124.458001,83.688 L135.338001,83.688 L135.338001,111.016 C135.338001,112.25334 135.498,113.426661 135.818001,114.536 C136.138003,115.645339 136.628664,116.637329 137.290001,117.512 C137.951338,118.386671 138.825996,119.079997 139.914001,119.592 C141.002007,120.104003 142.313993,120.36 143.850001,120.36 C145.386009,120.36 146.697996,120.104003 147.786001,119.592 C148.874007,119.079997 149.759331,118.386671 150.442001,117.512 C151.124671,116.637329 151.615333,115.645339 151.914001,114.536 C152.212669,113.426661 152.362001,112.25334 152.362001,111.016 L152.362001,83.688 L163.306001,83.688 L163.306001,111.912 Z" id="path-3"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="3" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Tablet-Portrait" transform="translate(-42.000000, -298.000000)">
+            <g id="Group-Copy-3" transform="translate(42.000000, 298.000000)">
+                <g id="Oval">
+                    <use fill="#A80519" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                </g>
+                <g id="THU">
+                    <use fill="#DBCA00" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
