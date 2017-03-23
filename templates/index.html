@@ -4,10 +4,10 @@
     <title>Synchronized Sliders</title>
 </head>
 <body>
-    <h1>Synchronized Sliders!</h1>
+<h1>Synchronized Sliders!</h1>
 
-    <input class="sync" id="slider1" type="range" min="0" max="50" value="{{ slider1 }}" /> <br>
-    <input class="sync" id="slider2" type="range" min="0" max="50" value="{{ slider2 }}" />
+<input class="sync" id="slider1" type="range" min="0" max="50" value="{{ slider1 }}"/> <br>
+<input class="sync" id="slider2" type="range" min="0" max="50" value="{{ slider2 }}"/>
 
 
 <script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
@@ -15,22 +15,36 @@
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 
 <script src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
+{#<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>#}
 
 <script type="text/javascript" charset="utf-8">
-    $(document).ready(function(){
+    $(document).ready(function () {
 
         var socket = io.connect();
 
         // the socket.io documentation recommends sending an explicit package upon connection
-        socket.on('connect', function() {
-            socket.emit('connect', {data: 'I\'m connected!'});
+        {#        socket.on('connect', function() {#}
+        {#            socket.emit('connect', {data: 'I\'m connected!'});#}
+        {#                 console.log(socket.id);#}
+        {#        });#}
+        socket.on('connect', function () {
+            socket.emit('my event', {data: 'I\'m connected!'});
+            console.log(socket.id)
         });
 
-        $('input.sync').on('input', function(event) {
+        $('input.sync').on('input', function (event) {
             socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
             return false;
         });
 
+        {#        socket.on('update value', function (msg) {#}
+        {#            $('input.sync').val(msg.data);#}
+        {#            console.log(msg);#}
+        {#        });#}
+
+        socket.on('update value', function (msg) {
+            $('input#' + msg.who).val(msg.data)
+        });
     });
 </script>
 

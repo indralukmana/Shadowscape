@@ -83,13 +83,20 @@ def slider():
     return render_template('index.html', **values)
 
 
+# @socketio.on('value changed')
+# def value_changed(message):
+#     values[message['who']] = message['data']
+#     print(message)
+#     # emit('update value', message, broadcast=True)
+
 @socketio.on('value changed')
 def value_changed(message):
-    print(message)
     values[message['who']] = message['data']
-
+    emit('update value', message, broadcast=True)
+    print(message)
 if __name__ == "__main__":
     # lets launch our web page!
     # do 0.0.0.0 so that we can log into this web page
     # using another computer on the same network later
-    app.run(host='0.0.0.0')
+    # app.run(host='0.0.0.0')
+    socketio.run(app, host='0.0.0.0')
