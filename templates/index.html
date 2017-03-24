@@ -4,10 +4,14 @@
     <title>Synchronized Sliders</title>
 </head>
 <body>
-<h1>Synchronized Sliders!</h1>
+{#<h1>Synchronized Sliders!</h1>#}
 
-<input class="sync" id="slider1" type="range" min="0" max="50" value="{{ slider1 }}"/> <br>
-<input class="sync" id="slider2" type="range" min="0" max="50" value="{{ slider2 }}"/>
+<input class="sync" id="slider1" type="range" min="0" max="50" value="{{ slider1 }}" hidden/> <br>
+<input class="sync" id="slider2" type="range" min="0" max="50" value="{{ slider2 }}" hidden/>
+
+<video autoplay loop>
+    <source src="{{ url_for('static', filename='animation/Friday/Friday_DateNumberBackground.mp4') }}" type="video/mp4">
+</video>
 
 
 <script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
