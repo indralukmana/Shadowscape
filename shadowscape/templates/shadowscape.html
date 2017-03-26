@@ -13,51 +13,56 @@
 <body>
 
 <div class="container h-100">
-    <div class="row h-100 w-100">
+    <div class="row w-100">
         <div class="col my-auto">
-            <a href="{{ url_for('shadowscape', day='1') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='1') }}" role="button" id="sunday">
                 <img src="{{ url_for('static', filename='img/sun.svg') }}" class="img-fluid">
                 <!--Sunday -->
             </a>
         </div>
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='2') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='2') }}" role="button" id="monday">
                 <img src="{{ url_for('static', filename='img/mon.svg') }}" class="img-fluid">
                 <!-- Monday -->
             </a>
         </div>
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='3') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='3') }}" role="button" id="tuesday">
                 <img src="{{ url_for('static', filename='img/tue.svg') }}" class="img-fluid">
                 <!-- Tuesday -->
             </a>
         </div>
+
+
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='4') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='4') }}" role="button" id="wednesday">
                 <img src="{{ url_for('static', filename='img/wed.svg') }}" class="img-fluid">
                 <!-- Wednesday -->
             </a>
         </div>
+
+    </div>
+    <div class="row w-100">
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='5') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='5') }}" role="button" id="thursday">
                 <img src="{{ url_for('static', filename='img/thu.svg') }}" class="img-fluid">
                 <!-- Thursday-->
             </a>
         </div>
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='6') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='6') }}" role="button" id="friday">
                 <img src="{{ url_for('static', filename='img/fri.svg') }}" class="img-fluid">
                 <!-- Friday -->
             </a>
         </div>
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='7') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='7') }}" role="button" id="saturday">
                 <img src="{{ url_for('static', filename='img/sat.svg') }}" class="img-fluid">
                 <!-- Saturday -->
             </a>
         </div>
         <div class="col my-auto mx-auto">
-            <a href="{{ url_for('shadowscape', day='0') }}" role="button">
+            <a href="{{ url_for('shadowscape', day='0') }}" role="button" id="now">
                 <img src="{{ url_for('static', filename='img/now.svg') }}" class="img-fluid">
                 <!-- Now -->
             </a>
@@ -68,5 +73,36 @@
 <script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
 <script src="{{ url_for('static', filename='js/tether.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+<script src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+
+        var socket = io.connect();
+
+        socket.on('connect', function () {
+            socket.emit('my event', {data: 'I\'m connected!'});
+            console.log(socket.id)
+        });
+
+        $('input.sync').on('input', function (event) {
+            socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
+            return false;
+        });
+
+        $('a').on('click', function () {
+            {#            console.log("test");#}
+            {#            alert($(this).attr('id'));#}
+            socket.emit('day update', {day: $(this).attr('id')});
+            return false;
+        });
+
+        {#        socket.on('update value', function (msg) {#}
+        {#            $('input#' + msg.who).val(msg.data)#}
+        {#        });#}
+    });
+</script>
+
 </body>
 </html>

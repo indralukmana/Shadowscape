@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Shadowscape</title>
+    <style>
+        video {
+        {#            object-fit: fill;#} position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<input class="sync" id="slider1" type="range" min="0" max="50" value="{{ slider1 }}" hidden/> <br>
+<input class="sync" id="slider2" type="range" min="0" max="50" value="{{ slider2 }}" hidden/>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div align="center" class="embed-responsive embed-responsive-16by9">
+                <video class="h-25 w-25" src="/static/animation/Friday/Friday_DateNumberBackground.mp4" autoplay loop>
+                    {#                    <source#}
+                    {#                            type="video/mp4">#}
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tether.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+<script src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+
+        var socket = io.connect();
+
+        socket.on('connect', function () {
+            socket.emit('my event', {data: 'I\'m connected!'});
+            console.log(socket.id)
+        });
+
+        $('input.sync').on('input', function (event) {
+            socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
+            return false;
+        });
+
+        socket.on('update value', function (msg) {
+            $('input#' + msg.who).val(msg.data)
+        });
+
+        socket.on('day become', function (msg) {
+            var video = document.getElementsByTagName('video');
+
+            {#            if (msg.day === 'monday') {#}
+            {#                video[0].setAttribute('src', 'static/animation/Monday/Monday_TweetDateBlack.mp4');#}
+            {#                console.log(msg);#}
+            {#            } else if (msg.day === "sunday") {#}
+            {#            }#}
+
+            switch (msg.day) {
+                case 'sunday':
+                    video[0].setAttribute('src', 'static/animation/Friday/Friday_DateNumberBackground.mp4');
+                    break;
+                case 'monday':
+                    video[0].setAttribute('src', 'static/animation/Monday/Monday_DateNumberBackground.mp4');
+                    break;
+                case 'tuesday':
+                    video[0].setAttribute('src', 'static/animation/Tuesday/Tuesday_DateNumberBackground.mp4');
+                    break;
+                case 'wednesday':
+                    video[0].setAttribute('src', 'static/animation/Wednesday/Wednesday_DateNumberBackground.mp4');
+                    break;
+                case 'thursday':
+                    video[0].setAttribute('src', 'static/animation/Thursday/Thursday_DateNumberBackground.mp4');
+                    break;
+                case 'friday':
+                    video[0].setAttribute('src', 'static/animation/Friday/Friday_DateNumberBackground.mp4');
+                    break;
+                case 'saturday':
+                    video[0].setAttribute('src', 'static/animation/Saturday/Saturday_DateNumberBackground.mp4');
+                    break;
+                case 'now':
+                    video[0].setAttribute('src', 'static/animation/Saturday/Saturday_TweetDateBlack.mp4');
+                    break;
+                default:
+                    console.log(msg);
+            }
+
+        });
+    });
+</script>
+
+</body>
+</html>
