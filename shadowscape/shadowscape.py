@@ -28,47 +28,12 @@ ANALOG_PIN = 0
 print('Arduino initialized')
 
 
-@app.route('/<day>')
-def shadowscape(day):
-    print("STARTING")
-
-    print(day)
-    #
-    # if day is '1':
-    #     print('SUNDAY')
-    #     ser.write("1".encode())
-    #
-    # elif day == '2':
-    #     print('MONDAY')
-    #     ser.write("2".encode())
-    #
-    # elif day == '3':
-    #     print('TUESDAY')
-    #     ser.write("3".encode())
-    #
-    # elif day == '4':
-    #     print('WEDNESDAY')
-    #     ser.write("4".encode())
-    #
-    # elif day == '5':
-    #     print('THURSDAY')
-    #
-    # elif day == '6':
-    #     print('FRIDAY')
-    #
-    # elif day == '7':
-    #     print('SATURDAY')
-    #
-    # elif day == '0':
-    #     print('NOW')
-    #
-    # else:
-    #     pass
-
+@app.route('/')
+def shadowscape():
     return render_template('shadowscape.html')
 
 
-@app.route('/slider')
+@app.route('/animation')
 def slider():
     return render_template('animation.html')
 
