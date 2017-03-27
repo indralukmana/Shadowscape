@@ -10,23 +10,6 @@ socketio = SocketIO(app)
 
 turnOn = False
 
-# day_of_week = ""
-
-# initialize connection to Arduino
-# if your arduino was running on a serial port other than '/dev/ttyACM0/'
-# declare: a = Arduino(serial_port='/dev/ttyXXX')
-# a = Arduino(serial_port='/dev/cu.usbmodem1411')
-time.sleep(3)
-
-# declare the pins we're using
-LED_PIN = 13
-ANALOG_PIN = 0
-
-# initialize the digital pin as output
-# a.set_pin_mode(LED_PIN, 'O')
-
-print('Arduino initialized')
-
 
 @app.route('/')
 def shadowscape():
