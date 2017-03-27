@@ -70,7 +70,7 @@ def shadowscape(day):
 
 @app.route('/slider')
 def slider():
-    return render_template('index.html', **values)
+    return render_template('animation.html')
 
 
 @socketio.on('value changed')
@@ -86,7 +86,10 @@ def day_update(message):
     day_of_week = message['day']
     emit('day become', message, broadcast=True)
 
+    # Testing using blink
     blink_arduino_writer(ser, day_of_week)
+
+    # Execute the day for arduino
 
     print('socket :' + day_of_week)
 

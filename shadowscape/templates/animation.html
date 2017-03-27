@@ -16,8 +16,6 @@
     </style>
 </head>
 <body>
-<input class="sync" id="slider1" type="range" min="0" max="50" value="{{ slider1 }}" hidden/> <br>
-<input class="sync" id="slider2" type="range" min="0" max="50" value="{{ slider2 }}" hidden/>
 
 <div class="container-fluid">
     <div class="row">
@@ -61,36 +59,30 @@
         socket.on('day become', function (msg) {
             var video = document.getElementsByTagName('video');
 
-            {#            if (msg.day === 'monday') {#}
-            {#                video[0].setAttribute('src', 'static/animation/Monday/Monday_TweetDateBlack.mp4');#}
-            {#                console.log(msg);#}
-            {#            } else if (msg.day === "sunday") {#}
-            {#            }#}
-
             switch (msg.day) {
                 case 'sunday':
-                    video[0].setAttribute('src', 'static/animation/Friday/Friday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'monday':
-                    video[0].setAttribute('src', 'static/animation/Monday/Monday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'tuesday':
-                    video[0].setAttribute('src', 'static/animation/Tuesday/Tuesday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'wednesday':
-                    video[0].setAttribute('src', 'static/animation/Wednesday/Wednesday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'thursday':
-                    video[0].setAttribute('src', 'static/animation/Thursday/Thursday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'friday':
-                    video[0].setAttribute('src', 'static/animation/Friday/Friday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'saturday':
-                    video[0].setAttribute('src', 'static/animation/Saturday/Saturday_DateNumberBackground.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'now':
-                    video[0].setAttribute('src', 'static/animation/Saturday/Saturday_TweetDateBlack.mp4');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 default:
                     console.log(msg);
