@@ -38,12 +38,6 @@ def slider():
     return render_template('animation.html')
 
 
-@socketio.on('value changed')
-def value_changed(message):
-    emit('update value', message, broadcast=True)
-    print(message)
-
-
 @socketio.on('day update')
 def day_update(message):
     ser = serial.Serial("/dev/cu.usbmodem1421", 9600)
@@ -55,6 +49,7 @@ def day_update(message):
     blink_arduino_writer(ser, day_of_week)
 
     # Execute the day for arduino
+    # day_arduino_writer(ser, day_of_week)
 
     print('socket :' + day_of_week)
 
