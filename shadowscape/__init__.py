@@ -1,0 +1,1 @@
+from .shadowscape import app
