@@ -5,6 +5,6 @@ setup(
     packages=['shadowscape'],
     include_package_data=True,
     install_requires=[
-        'flask',
+        'flask', 'pyserial', 'flask_socketio'
     ],
 )

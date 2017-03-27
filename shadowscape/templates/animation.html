@@ -21,9 +21,7 @@
     <div class="row">
         <div class="col-12">
             <div align="center" class="embed-responsive embed-responsive-16by9">
-                <video class="h-25 w-25" src="/static/animation/Friday/Friday_DateNumberBackground.mp4" autoplay loop>
-                    {#                    <source#}
-                    {#                            type="video/mp4">#}
+                <video class="h-25 w-25" src="{{ url_for('static', filename='animation/BackgroundLoop') }}" autoplay loop>
                 </video>
             </div>
         </div>
@@ -64,22 +62,22 @@
                     video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
                     break;
                 case 'monday':
-                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/1_Monday_Tweet.mp4') }}');
                     break;
                 case 'tuesday':
-                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/2_Tuesday_Tweet.mp4') }}');
                     break;
                 case 'wednesday':
-                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/3_Wednesday_Tweet.mp4') }}');
                     break;
                 case 'thursday':
-                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/4_Thursday_Tweet.mp4') }}');
                     break;
                 case 'friday':
-                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/5_Friday_Tweet.mp4') }}');
                     break;
                 case 'saturday':
-                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
+                    video[0].setAttribute('src', '{{ url_for('static', filename='animation/6_Saturday_Tweet.mp4') }}');
                     break;
                 case 'now':
                     video[0].setAttribute('src', '{{ url_for('static', filename='animation/0_Sunday_Tweet.mp4') }}');
