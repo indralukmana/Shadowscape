@@ -35,6 +35,7 @@ def day_update(message):
     # day_arduino_writer(ser, day_of_week)
 
     print('socket :' + day_of_week)
+    time.sleep(3)
 
 
 def blink_arduino_writer(ser, day_of_week):
