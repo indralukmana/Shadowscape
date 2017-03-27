@@ -23,13 +23,13 @@ def slider():
 
 @socketio.on('day update')
 def day_update(message):
-    ser = serial.Serial("/dev/cu.usbmodem1421", 9600)
+    # ser = serial.Serial("/dev/cu.usbmodem1421", 9600)
 
     day_of_week = message['day']
     emit('day become', message, broadcast=True)
 
     # Testing using blink
-    blink_arduino_writer(ser, day_of_week)
+    # blink_arduino_writer(ser, day_of_week)
 
     # Execute the day for arduino
     # day_arduino_writer(ser, day_of_week)
