@@ -31,7 +31,6 @@ print('Arduino initialized')
 @app.route('/<day>')
 def shadowscape(day):
     print("STARTING")
-    ser = serial.Serial("/dev/cu.usbmodem1411", 9600)
 
     print(day)
     #
@@ -82,7 +81,7 @@ def value_changed(message):
 
 @socketio.on('day update')
 def day_update(message):
-    ser = serial.Serial("/dev/cu.usbmodem1411", 9600)
+    ser = serial.Serial("/dev/cu.usbmodem1421", 9600)
 
     day_of_week = message['day']
     emit('day become', message, broadcast=True)
