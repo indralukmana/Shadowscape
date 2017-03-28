@@ -1,32 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Shadowscape</title>
-    <style>
+{% extends 'layout.html' %}
 
-        body {
-            background: black;
-        }
+{% block body %}
+<body class="black">
 
-        video {
-            position: absolute;
-            min-width: 100%;
-            min-height: 100%;
-            max-width: 100%;
-            max-height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
-</head>
-<body>
-
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid h-100">
+    <div class="row h-100 w-100 align-items-center">
         <div class="col-12">
             <div align="center" class="embed-responsive embed-responsive-16by9">
-                <video class="h-25 w-25" src="{{ url_for('static', filename='animation/BackgroundLoop.mp4') }}" autoplay loop>
+                <video src="{{ url_for('static', filename='animation/BackgroundLoop.mp4') }}" autoplay loop>
                 </video>
             </div>
         </div>
@@ -48,15 +29,6 @@
         socket.on('connect', function () {
             socket.emit('my event', {data: 'I\'m connected!'});
             console.log(socket.id)
-        });
-
-        $('input.sync').on('input', function (event) {
-            socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
-            return false;
-        });
-
-        socket.on('update value', function (msg) {
-            $('input#' + msg.who).val(msg.data)
         });
 
         socket.on('day become', function (msg) {
@@ -95,5 +67,6 @@
     });
 </script>
 
-</body>
-</html>
+
+
+{% endblock %}

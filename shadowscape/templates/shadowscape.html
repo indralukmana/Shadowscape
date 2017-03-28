@@ -1,119 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Shadowscape</title>
-    {#    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/bootstrap.css") }}">#}
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
-    <style>
-        html, body {
-            height: 100%;
-        }
+{% extends 'layout.html' %}
 
-        img {
-            margin: 5%;
+{% block body %}
 
-        }
+    <div class="container">
+        <div class="row h-25 w-100 justify-content-center">
+            <div class="col text-center justify-content-center">
+                <a href="{{ url_for('shadowscape', day='1') }}" role="button" id="sunday">
+                    <img src="{{ url_for('static', filename='img/sun.svg') }}" class="img-fluid">
+                    <!--Sunday -->
+                </a>
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('shadowscape', day='2') }}" role="button" id="monday">
+                    <img src="{{ url_for('static', filename='img/mon.svg') }}" class="img-fluid">
+                    <!-- Monday -->
+                </a>
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('shadowscape', day='3') }}" role="button" id="tuesday">
+                    <img src="{{ url_for('static', filename='img/tue.svg') }}" class="img-fluid">
+                    <!-- Tuesday -->
+                </a>
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('shadowscape', day='4') }}" role="button" id="wednesday">
+                    <img src="{{ url_for('static', filename='img/wed.svg') }}" class="img-fluid">
+                    <!-- Wednesday -->
+                </a>
+            </div>
 
-        .col {
-            min-height: 175px;
-            min-width: 175px;
-            max-height: 175px;
-            max-width: 175px;
-        }
-
-        .container {
-            padding-top: 10%;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="row h-25 w-100 justify-content-center">
-        <div class="col text-center justify-content-center">
-            <a href="{{ url_for('shadowscape', day='1') }}" role="button" id="sunday">
-                <img src="{{ url_for('static', filename='img/sun.svg') }}" class="img-fluid">
-                <!--Sunday -->
-            </a>
         </div>
-        <div class="col text-center">
-            <a href="{{ url_for('shadowscape', day='2') }}" role="button" id="monday">
-                <img src="{{ url_for('static', filename='img/mon.svg') }}" class="img-fluid">
-                <!-- Monday -->
-            </a>
+        <div class="row h-25 w-100 justify-content-center">
+            <div class="col text-center">
+                <a href="{{ url_for('shadowscape', day='5') }}" role="button" id="thursday">
+                    <img src="{{ url_for('static', filename='img/thu.svg') }}" class="img-fluid">
+                    <!-- Thursday-->
+                </a>
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('shadowscape', day='6') }}" role="button" id="friday">
+                    <img src="{{ url_for('static', filename='img/fri.svg') }}" class="img-fluid">
+                    <!-- Friday -->
+                </a>
+            </div>
+            <div class="col text-center">
+                <a href="{{ url_for('shadowscape', day='7') }}" role="button" id="saturday">
+                    <img src="{{ url_for('static', filename='img/sat.svg') }}" class="img-fluid">
+                    <!-- Saturday -->
+                </a>
+            </div>
+
+            {#        <div class="col my-auto mx-auto">#}
+            {#            <a href="{{ url_for('shadowscape', day='0') }}" role="button" id="now">#}
+            {#                <img src="{{ url_for('static', filename='img/now.svg') }}" class="img-fluid">#}
+            {#                <!-- Now -->#}
+            {#            </a>#}
+            {#        </div>#}
         </div>
-        <div class="col text-center">
-            <a href="{{ url_for('shadowscape', day='3') }}" role="button" id="tuesday">
-                <img src="{{ url_for('static', filename='img/tue.svg') }}" class="img-fluid">
-                <!-- Tuesday -->
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="{{ url_for('shadowscape', day='4') }}" role="button" id="wednesday">
-                <img src="{{ url_for('static', filename='img/wed.svg') }}" class="img-fluid">
-                <!-- Wednesday -->
-            </a>
+
+        <div class="row w-100 h-50 mx-auto my-auto justify-content-center">
+            <img src="/static/img/logo.svg">
         </div>
 
     </div>
-    <div class="row h-25 w-100 justify-content-center">
-        <div class="col text-center">
-            <a href="{{ url_for('shadowscape', day='5') }}" role="button" id="thursday">
-                <img src="{{ url_for('static', filename='img/thu.svg') }}" class="img-fluid">
-                <!-- Thursday-->
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="{{ url_for('shadowscape', day='6') }}" role="button" id="friday">
-                <img src="{{ url_for('static', filename='img/fri.svg') }}" class="img-fluid">
-                <!-- Friday -->
-            </a>
-        </div>
-        <div class="col text-center">
-            <a href="{{ url_for('shadowscape', day='7') }}" role="button" id="saturday">
-                <img src="{{ url_for('static', filename='img/sat.svg') }}" class="img-fluid">
-                <!-- Saturday -->
-            </a>
-        </div>
 
-        {#        <div class="col my-auto mx-auto">#}
-        {#            <a href="{{ url_for('shadowscape', day='0') }}" role="button" id="now">#}
-        {#                <img src="{{ url_for('static', filename='img/now.svg') }}" class="img-fluid">#}
-        {#                <!-- Now -->#}
-        {#            </a>#}
-        {#        </div>#}
-    </div>
 
-    <div class="row w-100 h-50 mx-auto my-auto justify-content-center">
-        <img src="/static/img/logo.svg">
-    </div>
-
-</div>
-
-<script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.js') }}"></script>
-<script src="{{ url_for('static', filename='js/tether.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
-
-<script src="{{ url_for('static', filename="js/socket.io.js") }}"></script>
-
-<script type="text/javascript" charset="utf-8">
-    $(document).ready(function () {
-
-        var socket = io.connect();
-
-        socket.on('connect', function () {
-            socket.emit('my event', {data: 'I\'m connected!'});
-            console.log(socket.id)
-        });
-
-        $('a').on('click', function () {
-            socket.emit('day update', {day: $(this).attr('id')});
-            return false;
-        });
-
-    });
-</script>
-
-</body>
-</html>
+{% endblock %}
