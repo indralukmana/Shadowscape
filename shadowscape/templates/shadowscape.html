@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Shadowscape</title>
-    {#        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/bootstrap.css") }}">#}
-
-    {#        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/bootstrap.css") }}">#}
+    {#    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="css/bootstrap.css") }}">#}
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
     <style>
         html, body {
             height: 100%;
         }
 
-        .col-centered {
-            float: none;
-            margin: 0 auto;
-        }
-
-        img{
+        img {
             margin: 5%;
 
         }
 
-        .col{
+        .col {
             min-height: 175px;
             min-width: 175px;
             max-height: 175px;
             max-width: 175px;
         }
 
-        .container{
-{#            padding: 5%;#}
+        .container {
             padding-top: 10%;
         }
     </style>
@@ -94,9 +86,7 @@
     </div>
 
     <div class="row w-100 h-50 mx-auto my-auto justify-content-center">
-        {#                <div class="col mx-auto my-auto">#}
         <img src="/static/img/logo.svg">
-        {#                </div>#}
     </div>
 
 </div>
@@ -117,21 +107,11 @@
             console.log(socket.id)
         });
 
-        $('input.sync').on('input', function (event) {
-            socket.emit('value changed', {who: $(this).attr('id'), data: $(this).val()});
-            return false;
-        });
-
         $('a').on('click', function () {
-            {#            console.log("test");#}
-            {#            alert($(this).attr('id'));#}
             socket.emit('day update', {day: $(this).attr('id')});
             return false;
         });
 
-        {#        socket.on('update value', function (msg) {#}
-        {#            $('input#' + msg.who).val(msg.data)#}
-        {#        });#}
     });
 </script>
 
